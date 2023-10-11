@@ -1,0 +1,39 @@
+<div class="slider-header">
+  <ion-title> <h1>Welcome brother!</h1> </ion-title>
+  <ion-subtitle> <h2> Check these concepts... </h2> </ion-subtitle>
+</div>
+<br>
+<swiper-container
+  [modules]="swiperModules"
+  [slidesPerView]="1"
+  [spaceBetweenSlides]="10"
+  [loop]="true"
+  [pagination]="true"
+  [autoplay]="{
+    delay: 4000
+  }"
+>
+  <swiper-slide
+    *ngFor="let slide of home_slides" 
+  >
+    <ng-container {{slide.id}} >
+      <div class="slide_container" 
+        [style.background-image]="'url('+slide.bg_image+')'"
+      >
+        <div class="gradient"></div>
+  
+        <div class="info">
+          <div class="info_header">
+            <ion-title> <h2> {{slide.title}} </h2> </ion-title>
+            <ion-subtitle> <h3> {{slide.subtitle}} </h3> </ion-subtitle>
+          </div>
+          <div class="info_body">
+            <ion-text color="primary">
+              <p> {{slide.description}} </p>
+            </ion-text>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </swiper-slide>
+</swiper-container>
